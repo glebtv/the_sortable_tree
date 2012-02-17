@@ -1,6 +1,6 @@
 ### TheSortableTree
 
-Engine Based Drag&Drop GUI for awesome_nested_set gem. Rails 3+
+Engine Based Drag&Drop GUI for awesome_nested_set gem. **Rails >= 3.1**
 
 School teacher came to help! TaDa! ;)
 
@@ -22,6 +22,16 @@ School teacher came to help! TaDa! ;)
 * Simple nested sets (**min** option)
 * Nested sets with expand/collapse animation (**expand** option) [under development]
 * Nested comments (**comments** option) [under development]
+
+### Can I use gem with Rails 2 or Rails 3.0?
+
+Take files from the gem and put it in your rails 2 application.
+
+View helper and view files does not depend on the version of rails.
+
+Copy and Paste rebuild function from TheSortableTreeController.
+
+Perhaps, you may have to slightly change the function of the controller.
 
 ### Is it fast?
 
@@ -48,7 +58,9 @@ Read project wiki for looking ERB partials
 **By default I'm use HAML, and now you should define it manually in your Gemfile.**
 
 ### Install
+
     gem 'haml'
+    gem 'awesome_nested_set' # gem 'nested_set'
     gem 'the_sortable_tree'
 
 bundle
@@ -60,6 +72,16 @@ bundle
 3. JQuery UI
 
 ### Example of using with Page Model
+
+### Jquery
+
+**app/assets/javascripts/application.js**
+
+``` ruby
+//= require jquery
+//= require jquery-ui
+//= require jquery_ujs
+```
 
 ### Extend your Model
 
@@ -210,6 +232,24 @@ Customize and use it!
 = sortable_tree @pages, :new_url => new_page_path, :path => 'pages/the_sortable_tree', :max_levels => 2
 ```
 
+### LiveDemo
+
+https://github.com/the-teacher/the_sortable_tree_test_app
+
+### Options
+
+**id** - id field (:id => :friendly_id etc. **:id** by default)
+
+**title** - title field of node (:title => :name etc. **:title** by default)
+
+**path** - path to custom view partials (:path => 'pages/the_sortable_tree')
+
+**max_levels** - how many draggable levels can be? (**3** by default). **Can't be 0 (zero) and negative**
+
+**namespace** - namespace for admin sections for example. (:namespace => :admin, **:namespace** => nil by default)
+
+**opts[:level]** - view helper define level of recursion for each node. You can call **opts[:level]** into view partials
+
 ### Partials
 
 **_tree** - root container for nested set elements
@@ -236,6 +276,7 @@ Customize and use it!
 * https://github.com/the-teacher
 * https://github.com/winescout
 * https://github.com/gbrain
+* https://github.com/Mik-die
 
 ### Acknowledgments
 
