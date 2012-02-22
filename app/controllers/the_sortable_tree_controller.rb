@@ -16,21 +16,21 @@ module TheSortableTreeController
     include DefineVariablesMethod
     public
     def rebuild
-      id        = params[:id].to_i
-      parent_id = params[:parent_id].to_i
-      prev_id   = params[:prev_id].to_i
-      next_id   = params[:next_id].to_i
+      id        = params[:id].to_s
+      parent_id = params[:parent_id].to_s
+      prev_id   = params[:prev_id].to_s
+      next_id   = params[:next_id].to_s
 
-      render :text => "Do nothing" and return if parent_id.zero? && prev_id.zero? && next_id.zero?
+      render :text => "Do nothing" and return if parent_id.empty? && prev_id.empty? && next_id.empty?
 
       variable, collection, klass = self.the_define_common_variables
       variable = self.instance_variable_set(variable, klass.find(id))
 
-      if prev_id.zero? && next_id.zero?
+      if prev_id.empty? && next_id.empty?
         variable.move_to_child_of klass.find(parent_id)
-      elsif !prev_id.zero?
+      elsif !prev_id.empty?
         variable.move_to_right_of klass.find(prev_id)
-      elsif !next_id.zero?
+      elsif !next_id.empty?
         variable.move_to_left_of klass.find(next_id)
       end
 
