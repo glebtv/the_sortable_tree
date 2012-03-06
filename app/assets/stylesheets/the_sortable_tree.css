@@ -52,7 +52,7 @@ ol.nested_set * {
   position: absolute;
   top: 5px; right: 10px;
 }
-.nested_set .button{
+.nested_set .ns_button{
   width:20px;
   height:20px;
   display:block;
@@ -84,23 +84,23 @@ ol.nested_set * {
   background:#FAA;
   color:#8a1f11;
 }
-.nested_set .button.new{ background:transparent url(/assets/iconza/blue/add.png) no-repeat scroll center center; }
-.nested_set .button.new:hover{ background:transparent url(/assets/iconza/red/add.png) no-repeat scroll center center;}
+.nested_set .ns_button.new{ background:transparent url(/assets/iconza/blue/add.png) no-repeat scroll center center; }
+.nested_set .ns_button.new:hover{ background:transparent url(/assets/iconza/red/add.png) no-repeat scroll center center;}
 
-.nested_set .button.edit{ background:transparent url(/assets/iconza/blue/edit.png) no-repeat scroll center center; }
-.nested_set .button.edit:hover{ background:transparent url(/assets/iconza/red/edit.png) no-repeat scroll center center;}
+.nested_set .ns_button.edit{ background:transparent url(/assets/iconza/blue/edit.png) no-repeat scroll center center; }
+.nested_set .ns_button.edit:hover{ background:transparent url(/assets/iconza/red/edit.png) no-repeat scroll center center;}
 
-.nested_set .button.up{ background:transparent url(/assets/iconza/blue/up.png) no-repeat scroll center center; }
-.nested_set .button.up:hover{ background:transparent url(/assets/iconza/red/up.png) no-repeat scroll center center;}
+.nested_set .ns_button.up{ background:transparent url(/assets/iconza/blue/up.png) no-repeat scroll center center; }
+.nested_set .ns_button.up:hover{ background:transparent url(/assets/iconza/red/up.png) no-repeat scroll center center;}
 
-.nested_set .button.down{ background:transparent url(/assets/iconza/blue/down.png) no-repeat scroll center center; }
-.nested_set .button.down:hover{ background:transparent url(/assets/iconza/red/down.png) no-repeat scroll center center;}
+.nested_set .ns_button.down{ background:transparent url(/assets/iconza/blue/down.png) no-repeat scroll center center; }
+.nested_set .ns_button.down:hover{ background:transparent url(/assets/iconza/red/down.png) no-repeat scroll center center;}
 
-.nested_set .button.delete{ background:transparent url(/assets/iconza/blue/delete.png) no-repeat scroll center center; }
-.nested_set .button.delete:hover{ background:transparent url(/assets/iconza/red/delete.png) no-repeat scroll center center;}
+.nested_set .ns_button.delete{ background:transparent url(/assets/iconza/blue/delete.png) no-repeat scroll center center; }
+.nested_set .ns_button.delete:hover{ background:transparent url(/assets/iconza/red/delete.png) no-repeat scroll center center;}
 
-.nested_set .button.hard_delete{ background:transparent url(/assets/iconza/gray/delete.png) no-repeat scroll center center; }
-.nested_set .button.hard_delete:hover{ background:transparent url(/assets/iconza/red/delete.png) no-repeat scroll center center;}
+.nested_set .ns_button.hard_delete{ background:transparent url(/assets/iconza/gray/delete.png) no-repeat scroll center center; }
+.nested_set .ns_button.hard_delete:hover{ background:transparent url(/assets/iconza/red/delete.png) no-repeat scroll center center;}
 
 .nested_set .undeleted{ background:transparent url(/assets/iconza/gray/delete.png) no-repeat scroll center center; }
 .nested_set .cantup{ background:transparent url(/assets/iconza/gray/up.png) no-repeat scroll center center; }
