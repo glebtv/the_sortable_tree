@@ -1,5 +1,6 @@
 :javascript
   sortable_tree_init({
+    id: "#{opts[:klass]}_nested_set",
     max_levels: #{opts[:max_levels]},
     rebuild_url: '#{url_for(:controller => opts[:klass].pluralize, :action => :rebuild)}'
   });

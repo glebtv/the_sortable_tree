@@ -10,5 +10,5 @@ ru:
       delete_nested_elements: Сперва удалите все дочерние элементы
       enable_this: Включить
       disable_this: Выключить
-      disabled: Выключено.
-      enabled: Включено.
+    disabled: Выключено.
+    enabled: Включено.

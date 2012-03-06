@@ -4,6 +4,32 @@ module TheSortableTreeController
   
   module DefineVariablesMethod
     public
+    def enable
+      id        = params[:id].to_s
+      variable, collection, klass = the_define_common_variables
+      variable = self.instance_variable_set(variable, the_find(klass, id))
+      variable.enabled = true
+      variable.save
+      if request.xhr?
+        render text: 'ok'
+      else 
+        redirect_to url_for(action: :index), notice: t('the_sortable_tree.enabled')
+      end
+    end
+    
+    def disable
+      id        = params[:id].to_s
+      variable, collection, klass = the_define_common_variables
+      variable = self.instance_variable_set(variable, the_find(klass, id))
+      variable.enabled = false
+      variable.save
+      if request.xhr?
+        render text: 'ok'
+      else 
+        redirect_to url_for(action: :index), notice: t('the_sortable_tree.disabled')
+      end
+    end
+    
     def the_define_common_variables
       collection =  self.class.to_s.split(':').last.sub(/Controller/,"").underscore.downcase # recipes
       variable =    collection.singularize                      # recipe
@@ -18,6 +44,7 @@ module TheSortableTreeController
         klass.find_by_slug(id)
       end
     end
+    
   end#DefineVariablesMethod
   
   module Rebuild
@@ -29,8 +56,13 @@ module TheSortableTreeController
       prev_id   = params[:prev_id].to_s
       next_id   = params[:next_id].to_s
 
+      if id.empty?
+        render text: 'err 1', status: 500
+        return
+      end
       if parent_id.empty? && prev_id.empty? && next_id.empty?
-        render nothing: true
+        render text: 'err 2'
+        return
       end
       
       variable, collection, klass = self.the_define_common_variables
@@ -44,33 +76,7 @@ module TheSortableTreeController
         variable.move_to_left_of the_find(klass, next_id)
       end
 
-      render nothing: true
-    end
-    
-    def enable
-      id        = params[:id].to_s
-      variable, collection, klass = self.the_define_common_variables
-      variable = self.instance_variable_set(variable, the_find(klass, id))
-      variable.enabled = true
-      variable.save
-      if request.xhr?
-        render nothing: true
-      else 
-        redirect_to action: :index, notice: t('the_sortable_tree.enabled')
-      end
-    end
-    
-    def disable
-      id        = params[:id].to_s
-      variable, collection, klass = self.the_define_common_variables
-      variable = self.instance_variable_set(variable, the_find(klass, id))
-      variable.enabled = false
-      variable.save
-      if request.xhr?
-        render nothing: true
-      else 
-        redirect_to action: :index, notice: t('the_sortable_tree.disabled')
-      end
+      render text: 'ok'
     end
   end#Rebuild
   
@@ -83,8 +89,15 @@ module TheSortableTreeController
       prev_id   = params[:prev_id].to_i
       next_id   = params[:next_id].to_i
 
-      render :text => "Do nothing" and return if parent_id.zero? && prev_id.zero? && next_id.zero?
-
+      if id.empty?
+        render text: 'err', status: 500
+        return
+      end
+      if parent_id.empty? && prev_id.empty? && next_id.empty?
+        render text: 'err'
+        return
+      end
+      
       variable, collection, klass = self.the_define_common_variables
       variable = self.instance_variable_set(variable, the_find(klass, id))
 
@@ -96,7 +109,7 @@ module TheSortableTreeController
         variable.move_to_right_of the_find(klass, next_id)
       end
 
-      render(:nothing => true)
+      render text: 'ok'
     end
   end#ReversedRebuild
 

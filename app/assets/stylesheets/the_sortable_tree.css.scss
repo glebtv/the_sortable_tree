@@ -21,8 +21,7 @@ ol.nested_set * {
   list-style: none;
   font-size: 16px;
   ol {
-    margin: 0 0 0 25px;
-    
+    margin: 6px 0px 0px 25px;
   }
   li {
     margin-bottom: 5px;
@@ -62,9 +61,6 @@ ol.nested_set * {
     box-shadow:0 1px 0 #ffffff;
     -webkit-box-shadow:0 1px 0 #ffffff;
     -moz-box-shadow:0 1px 0 #ffffff;
-    &.root {
-      margin-bottom: 6px;
-    }
   }
   .controls {
     position: absolute;
@@ -87,8 +83,10 @@ ol.nested_set * {
     background: transparent image_url("drag.png") no-repeat scroll center center;
   }
   .placeholder {
-    background-color: #EEF;
-    border: 1px dashed blue;
+    background-color: #f5f5f5;
+    border: 1px dashed #dddddd;
+    height: 17px;
+    padding: 5px;
   }
   .ui-nestedSortable-error {
     background: #FAA;
