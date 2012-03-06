@@ -1,5 +1,6 @@
+//= require jquery
 //= require jquery.ui.sortable
-//= require jquery.ui.nestedSortable
+//= require jquery.mjs.nestedSortable
 
 function sortable_tree_init(tree_config) {
   function sortable_tree(item_id, parent_id, prev_id, next_id){

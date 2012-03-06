@@ -8,3 +8,7 @@ ru:
       delete_confirm: Удалить элемент безвозвратно?
       cant_be_deleted: Не может быть удалено. Есть дочерние элементы
       delete_nested_elements: Сперва удалите все дочерние элементы
+      enable_this: Включить
+      disable_this: Выключить
+      disabled: Выключено.
+      enabled: Включено.

@@ -2,9 +2,9 @@
 - if node.enabled.nil?
   - toggle = ''
 - if node.enabled
-  - toggle = link_to '', disable_admin_category_url(node), :title => 'Выключить', :class => 'ns_button disable'
+  - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :disable), :title => t('.disable_this'), :class => 'ns_button on', method: :post
 - else
-  - toggle = link_to '', enable_admin_category_url(node), :title => 'Включить', :class => 'ns_button enable'
+  - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :enable), :title => t('.enable_this'), :class => 'ns_button off', method: :post
 -# EDIT
 - edit = link_to '', polymorphic_url(opts[:namespace] + [node], :action => :edit), :title => t('.edit_this'), :class => 'ns_button edit'
 -# DELETE

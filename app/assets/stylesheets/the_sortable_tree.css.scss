@@ -22,29 +22,24 @@ ol.nested_set * {
   font-size: 16px;
   ol {
     margin: 0 0 0 25px;
-    border-left: 1px dashed gray;
+    
   }
   li {
     margin-bottom: 5px;
   }
-  a {
+  .link > a {
     color: #000;
     font-size: 10pt;
     font-weight: normal;
     text-decoration: none;
-    line-height: 150%;
-    margin-left: 30px;
-    margin-right: 120px;
+    float: left;
     display: block;
-    img {
-      float: left;
-    }
+    padding-left: 10px;
   }
   .root a {
     font-weight: bold;
   }
   a:hover {
-    color: #2476FF;
     text-decoration: none;
   }
   .handle {
@@ -55,11 +50,20 @@ ol.nested_set * {
     overflow: hidden;
     zoom: 1;
     padding: 5px;
-    margin: 0 0 5px 5px;
-    background: #EFEFEF;
-    -moz-border-radius: 5px;
-    &:hover {
-      background: #FEE;
+    border:1px solid #dddddd;
+    background:#ffffff;
+    background:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#f5f5f5));
+    background:-moz-linear-gradient(top,#ffffff,#f5f5f5);
+    background:-webkit-linear-gradient(top,#ffffff,#f5f5f5);
+    background:-o-linear-gradient(top,#ffffff,#f5f5f5);
+    background:-ms-linear-gradient(top,#ffffff,#f5f5f5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5');
+    background:linear-gradient(top,#ffffff,#f5f5f5);
+    box-shadow:0 1px 0 #ffffff;
+    -webkit-box-shadow:0 1px 0 #ffffff;
+    -moz-box-shadow:0 1px 0 #ffffff;
+    &.root {
+      margin-bottom: 6px;
     }
   }
   .controls {
@@ -80,7 +84,7 @@ ol.nested_set * {
     width: 16px;
     height: 16px;
     float: left;
-    background: transparent image_url(drag.png) no-repeat scroll center center;
+    background: transparent image_url("drag.png") no-repeat scroll center center;
   }
   .placeholder {
     background-color: #EEF;
@@ -92,16 +96,16 @@ ol.nested_set * {
   }
   .ns_button {
     &.edit {
-      background: transparent image_url(edit.png) no-repeat scroll center center;
+      background: transparent image_url("edit.png") no-repeat scroll center center;
     }
     &.delete {
-      background: transparent image_url(delete.png) no-repeat scroll center center;
+      background: transparent image_url("delete.png") no-repeat scroll center center;
     }
     &.on {
-      background: transparent image_url(on.png) no-repeat scroll center center;
+      background: transparent image_url("on.png") no-repeat scroll center center;
     }
     &.off {
-      background: transparent image_url(off.png) no-repeat scroll center center;
+      background: transparent image_url("off.png") no-repeat scroll center center;
     }
   }
 }

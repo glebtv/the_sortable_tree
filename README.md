@@ -1,7 +1,12 @@
-### TheSortableTree
+## About the fork
 
-customized for my needs - look and mongoid.
-icons from http://www.famfamfam.com/lab/icons/silk/
+customized for my needs - css styling, mongoid, slugs.
+it's not general or usable as is or documented, i just adjusted it to the way i use it.
+Please use original repository insted if not sure: https://github.com/the-teacher/the_sortable_tree
+
+credit: icons from http://www.famfamfam.com/lab/icons/silk/
+
+### TheSortableTree
 
 Engine Based Drag&Drop GUI for awesome_nested_set gem. **Rails >= 3.1**
 

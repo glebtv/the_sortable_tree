@@ -8,3 +8,7 @@ en:
       delete_confirm: Do you want to delete element? 
       cant_be_deleted: Cant be deleted. Has nested elements
       delete_nested_elements: Delete all nested elements
+      enable_this: Enable
+      disable_this: Disable
+      disabled: Disabled
+      enabled: Enabled
