@@ -1,0 +1,5 @@
+:javascript
+  sortable_tree_init({
+    max_levels: #{opts[:max_levels]},
+    rebuild_url: '#{url_for(:controller => opts[:klass].pluralize, :action => :rebuild)}'
+  });

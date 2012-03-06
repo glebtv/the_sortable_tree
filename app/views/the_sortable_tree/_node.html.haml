@@ -1,3 +1,10 @@
-%li{ :id => node.send(opts[:id]) + '_' + opts[:klass], :'data-id' => node.send(opts[:id]) }
-  = raw render(:partial => "#{opts[:path]}/link", :locals => {:opts => opts, :root => root, :node => node})
-  = render(:partial => "#{opts[:path]}/children", :locals => {:opts => opts, :parent => node, :children => children}) unless children.blank?
+%li{ :id => "#{node.send(opts[:id])}_#{opts[:klass]}" }
+  - title = node.send opts[:title]
+  - handle = content_tag :i, '', :class => :handle
+  - link = link_to(title, url_for(opts[:namespace] + [node]), :title => title)
+  - controls = render(:partial => "#{opts[:path]}/controls", :locals => { :node => node, :opts => opts })
+  - controls = content_tag(:b, controls, :class => :controls)
+  - element = handle + controls + link
+  %div{ :class => "link#{' root' if root}" }
+    = element
+  = content_tag :ol, raw(children)

@@ -1,5 +1,8 @@
 ### TheSortableTree
 
+customized for my needs - look and mongoid.
+icons from http://www.famfamfam.com/lab/icons/silk/
+
 Engine Based Drag&Drop GUI for awesome_nested_set gem. **Rails >= 3.1**
 
 School teacher came to help! TaDa! ;)

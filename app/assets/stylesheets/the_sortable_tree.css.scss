@@ -80,7 +80,7 @@ ol.nested_set * {
     width: 16px;
     height: 16px;
     float: left;
-    background: transparent image_url(move.png) no-repeat scroll center center;
+    background: transparent image_url(drag.png) no-repeat scroll center center;
   }
   .placeholder {
     background-color: #EEF;
@@ -91,20 +91,17 @@ ol.nested_set * {
     color: #8a1f11;
   }
   .ns_button {
-    &.new {
-      background: transparent image_url(add.png) no-repeat scroll center center;
-    }
     &.edit {
       background: transparent image_url(edit.png) no-repeat scroll center center;
     }
-    &.up {
-      background: transparent image_url(up.png) no-repeat scroll center center;
-    }
-    &.down {
-      background: transparent image_url(down.png) no-repeat scroll center center;
-    }
     &.delete {
       background: transparent image_url(delete.png) no-repeat scroll center center;
+    }
+    &.on {
+      background: transparent image_url(on.png) no-repeat scroll center center;
+    }
+    &.off {
+      background: transparent image_url(off.png) no-repeat scroll center center;
     }
   }
 }

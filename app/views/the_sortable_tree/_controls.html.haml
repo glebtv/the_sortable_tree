@@ -1,3 +1,10 @@
+-# TOGGLE
+- if node.enabled.nil?
+  - toggle = ''
+- if node.enabled
+  - toggle = link_to '', disable_admin_category_url(node), :title => 'Выключить', :class => 'ns_button disable'
+- else
+  - toggle = link_to '', enable_admin_category_url(node), :title => 'Включить', :class => 'ns_button enable'
 -# EDIT
 - edit = link_to '', polymorphic_url(opts[:namespace] + [node], :action => :edit), :title => t('.edit_this'), :class => 'ns_button edit'
 -# DELETE
@@ -13,4 +20,4 @@
     :onclick  =>  "alert('#{t('.delete_nested_elements')}')",
     :class    =>  'ns_button undeleted')
 -# OUTPUT
-= edit + delete
+= toggle + edit + delete
