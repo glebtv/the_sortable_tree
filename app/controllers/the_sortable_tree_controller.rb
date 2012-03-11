@@ -67,12 +67,13 @@ module TheSortableTreeController
       
       variable, collection, klass = self.the_define_common_variables
       variable = self.instance_variable_set(variable, the_find(klass, id))
-
+      p variable
       if prev_id.empty? && next_id.empty?
         variable.move_to_child_of the_find(klass, parent_id)
       elsif !prev_id.empty?
         variable.move_to_right_of the_find(klass, prev_id)
       elsif !next_id.empty?
+        p the_find(klass, next_id)
         variable.move_to_left_of the_find(klass, next_id)
       end
 

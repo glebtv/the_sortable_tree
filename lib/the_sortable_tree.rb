@@ -8,17 +8,14 @@ require "the_sortable_tree/version"
 module TheSortableTree
   # include TheSortableTree::Scopes
   module Scopes
-    def self.included(base)
+    extend ActiveSupport::Concern
+    included do
       if defined?(Mongoid)
-        base.class_eval do
-          scope :nested_set,          order_by(lft: :asc)
-          scope :reversed_nested_set, order_by(lft: :desc)
-        end
+        scope :nested_set,          order_by([lft: :asc])
+        scope :reversed_nested_set, order_by([lft: :desc])
       else
-        base.class_eval do
-          scope :nested_set, order('lft ASC')
-          scope :reversed_nested_set, order('lft DESC')
-        end
+        scope :nested_set, order('lft ASC')
+        scope :reversed_nested_set, order('lft DESC')
       end
     end
   end
