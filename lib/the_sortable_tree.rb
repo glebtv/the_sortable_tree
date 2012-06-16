@@ -11,8 +11,13 @@ module TheSortableTree
     extend ActiveSupport::Concern
     included do
       if defined?(Mongoid)
-        scope :nested_set,          order_by([lft: :asc])
-        scope :reversed_nested_set, order_by([lft: :desc])
+        if ::Mongoid::VERSION < '3'
+          scope :nested_set,          order_by([lft: :asc])
+          scope :reversed_nested_set, order_by([lft: :desc])
+        else
+          scope :nested_set,          order_by([:lft, :asc])
+          scope :reversed_nested_set, order_by([:lft, :desc])
+        end
       else
         scope :nested_set, order('lft ASC')
         scope :reversed_nested_set, order('lft DESC')
