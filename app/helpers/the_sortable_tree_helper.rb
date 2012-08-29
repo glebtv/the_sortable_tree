@@ -25,7 +25,8 @@ module TheSortableTreeHelper
       max_levels: opts[:max_levels] || 3,
       namespace: Array.wrap(opts[:namespace])
     })
-    render partial: "#{opts[:path]}/tree", locals: { tree: sortable_tree_builder(tree, opts), opts: opts }
+    tree = tree.to_a.sort_by { |m| m.lft }
+    render partial: "#{opts[:path]}/tree", locals: { tree: sortable_tree_builder(tree., opts), opts: opts }
   end
 
   def sortable_tree_builder(tree, options= {})
