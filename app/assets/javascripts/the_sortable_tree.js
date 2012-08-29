@@ -46,24 +46,32 @@ function sortable_tree_init(tree_config) {
           }
       });
 
-      function handleMethod(link, callback) {
-        var req = {}, href = link.attr('href');
-        $.post(href, req, callback);
+      function handleMethod(t) {
+          var $t = $(t);
+          $.ajax({
+              url: $t.attr('href'),
+              type: 'POST',
+              success: function(resp) {
+                  if (resp.split("|")[0] == 'false') {
+                      $t.add($t.parents('.link').parent().find('a.on')).removeClass('on').addClass('off');
+                  } else {
+                      $t.add($t.parents('.link').parent().find('a.off')).removeClass('off').addClass('on');
+                  }
+                  $t.prop('title', resp.split("|")[1])
+              },
+              error: function() {
+                  alert('При обращении к серверу произошла ошибка.');
+              }
+          });
+
+          return false;
       }
-      
+
       $('#' + tree_config['id']).on('click', 'a.on', function() {
-        var $t = $(this);
-        handleMethod($t, function() {
-          $t.removeClass('on').addClass('off');
-        });
-        return false;
+          return handleMethod(this);
       });
       $('#' + tree_config['id']).on('click', 'a.off', function() {
-        var $t = $(this);
-        handleMethod($t, function() {
-          $t.removeClass('off').addClass('on');
-        });
-        return false;
+          return handleMethod(this);
       });
   });
 }
