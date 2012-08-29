@@ -26,7 +26,7 @@ module TheSortableTreeHelper
       namespace: Array.wrap(opts[:namespace])
     })
     tree = tree.to_a.sort_by { |m| m.lft }
-    render partial: "#{opts[:path]}/tree", locals: { tree: sortable_tree_builder(tree., opts), opts: opts }
+    render partial: "#{opts[:path]}/tree", locals: { tree: sortable_tree_builder(tree, opts), opts: opts }
   end
 
   def sortable_tree_builder(tree, options= {})
