@@ -38,8 +38,5 @@ module TheSortableTree
 end
 
 if defined? ActiveAdmin
-  p 'loading active admin DSL helper'
   ActiveAdmin::ResourceDSL.send :include, TheSortableTree::Helper
-else
-  p 'active admin not loaded'
 end
