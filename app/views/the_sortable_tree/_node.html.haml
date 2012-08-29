@@ -1,5 +1,8 @@
 %li{ :id => "#{node.send(opts[:id])}_#{opts[:klass]}", :'data-id' => node.send(opts[:id]) }
-  - title = node.send opts[:title]
+  - if opts[:title].is_a? Proc
+    - title = opts[:title].call(node)
+  - else
+    - title = node.send opts[:title]
   - handle = content_tag :i, '', :class => :handle
   - link = link_to(title, url_for(opts[:namespace] + [node]), :title => title)
   - controls = render(:partial => "#{opts[:path]}/controls", :locals => { :node => node, :opts => opts })

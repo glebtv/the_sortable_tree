@@ -8,7 +8,11 @@ module TheSortableTreeController
       id        = params[:id].to_s
       variable, collection, klass = the_define_common_variables
       variable = self.instance_variable_set(variable, the_find(klass, id))
-      variable.enabled = true
+      if variable.respond_to? :enabled
+        variable.enabled = true
+      elsif variable.respond_to? :status
+        variable.status = true
+      end
       variable.save
       if request.xhr?
         render text: 'ok'
@@ -21,7 +25,11 @@ module TheSortableTreeController
       id        = params[:id].to_s
       variable, collection, klass = the_define_common_variables
       variable = self.instance_variable_set(variable, the_find(klass, id))
-      variable.enabled = false
+      if variable.respond_to? :enabled
+        variable.enabled = false
+      elsif variable.respond_to? :status
+        variable.status = false
+      end
       variable.save
       if request.xhr?
         render text: 'ok'
@@ -67,7 +75,6 @@ module TheSortableTreeController
       
       variable, collection, klass = self.the_define_common_variables
       variable = self.instance_variable_set(variable, the_find(klass, id))
-      p variable
       if prev_id.empty? && next_id.empty?
         variable.move_to_child_of the_find(klass, parent_id)
       elsif !prev_id.empty?

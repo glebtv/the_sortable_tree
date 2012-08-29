@@ -24,4 +24,22 @@ module TheSortableTree
       end
     end
   end
+  
+  module Helper
+    def the_sortable_tree_actions
+      controller do
+        include TheSortableTreeController::Rebuild
+      end
+      config.member_actions << ActiveAdmin::ControllerAction.new(:enable, method: :post)
+      config.member_actions << ActiveAdmin::ControllerAction.new(:disable, method: :post)
+      config.collection_actions << ActiveAdmin::ControllerAction.new(:rebuild, method: :post)
+    end
+  end
+end
+
+if defined? ActiveAdmin
+  p 'loading active admin DSL helper'
+  ActiveAdmin::ResourceDSL.send :include, TheSortableTree::Helper
+else
+  p 'active admin not loaded'
 end

@@ -1,10 +1,20 @@
 -# TOGGLE
-- if node.enabled.nil?
-  - toggle = ''
-- if node.enabled
-  - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :disable), :title => t('.disable_this'), :class => 'ns_button on', method: :post
+- if node.respond_to? :enabled
+  - if node.enabled.nil?
+    - toggle = ''
+  - if node.enabled
+    - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :disable), :title => t('.disable_this'), :class => 'ns_button on', method: :post
+  - else
+    - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :enable), :title => t('.enable_this'), :class => 'ns_button off', method: :post
+- elsif node.respond_to? :status
+  - if node.status.nil?
+    - toggle = ''
+  - if node.status
+    - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :disable), :title => t('.disable_this'), :class => 'ns_button on', method: :post
+  - else
+    - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :enable), :title => t('.enable_this'), :class => 'ns_button off', method: :post
 - else
-  - toggle = link_to '', polymorphic_url(opts[:namespace] + [node], action: :enable), :title => t('.enable_this'), :class => 'ns_button off', method: :post
+  - toggle = ''
 -# EDIT
 - edit = link_to '', polymorphic_url(opts[:namespace] + [node], :action => :edit), :title => t('.edit_this'), :class => 'ns_button edit'
 -# DELETE
