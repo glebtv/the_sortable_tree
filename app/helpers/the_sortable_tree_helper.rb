@@ -24,6 +24,7 @@ module TheSortableTreeHelper
       title: opts[:title] || :title,
       max_levels: opts[:max_levels] || 3,
       namespace: Array.wrap(opts[:namespace])
+      rand_id: rand(100_000_000..999_999_999)
     })
     tree = tree.to_a.sort_by { |m| m.lft }
     render partial: "#{opts[:path]}/tree", locals: { tree: sortable_tree_builder(tree, opts), opts: opts }
