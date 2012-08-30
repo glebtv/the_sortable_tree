@@ -22,6 +22,7 @@ module TheSortableTreeHelper
       path:  opts[:path] || :the_sortable_tree,
       klass: define_class_of_elements_of(tree),
       title: opts[:title] || :title,
+      extra: opts[:extra] || '',
       max_levels: opts[:max_levels] || 3,
       namespace: Array.wrap(opts[:namespace]),
       rand_id: rand(100_000_000..999_999_999)
