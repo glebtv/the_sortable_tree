@@ -17,7 +17,7 @@ module TheSortableTreeController
       if request.xhr?
         render text: "true|#{I18n.t("disable_this")}"
       else 
-        redirect_to url_for(action: :index), notice: t('the_sortable_tree.enabled')
+        redirect_to :back, notice: t('the_sortable_tree.enabled')
       end
     end
     
@@ -34,7 +34,7 @@ module TheSortableTreeController
       if request.xhr?
         render text: "false|#{I18n.t("enable_this")}"
       else 
-        redirect_to url_for(action: :index), notice: t('the_sortable_tree.disabled')
+        redirect_to :back, notice: t('the_sortable_tree.disabled')
       end
     end
     
