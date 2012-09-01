@@ -53,9 +53,13 @@ function sortable_tree_init(tree_config) {
               type: 'POST',
               success: function(resp) {
                   if (resp.split("|")[0] == 'false') {
-                      $t.add($t.parents('.link').parent().find('a.on')).removeClass('on').addClass('off');
+                      // $t.add($t.parents('.link').parent().find('a.on')).removeClass('on').addClass('off');
+                      $t.removeClass('on').addClass('off');
+                      $t.attr('href', $t.attr('href').replace('/enable', '/disable'));
                   } else {
-                      $t.add($t.parents('.link').parent().find('a.off')).removeClass('off').addClass('on');
+                      // $t.add($t.parents('.link').parent().find('a.off')).removeClass('off').addClass('on');
+                      $t.removeClass('off').addClass('on');
+                      $t.attr('href', $t.attr('href').replace('/disable', '/enable'));
                   }
                   $t.prop('title', resp.split("|")[1])
               },
