@@ -2,5 +2,5 @@
   sortable_tree_init({
     id: "#{opts[:klass]}_nested_set_#{opts[:rand_id]}",
     max_levels: #{opts[:max_levels]},
-    rebuild_url: '#{url_for(:controller => opts[:klass].pluralize, :action => :rebuild)}'
+    rebuild_url: '#{url_for(:controller => opts[:klass].tableize, :action => :rebuild)}'
   });
