@@ -25,9 +25,13 @@ module TheSortableTreeHelper
       extra: opts[:extra] || '',
       max_levels: opts[:max_levels] || 3,
       namespace: Array.wrap(opts[:namespace]),
-      rand_id: rand(100_000_000..999_999_999)
+      rand_id: rand(100_000_000..999_999_999),
     })
-    tree = tree.to_a.sort_by { |m| m.lft.nil? ? 0 : m.lft }
+    opts[:sort_by] = :lft if opts[:sort_by].nil?
+    p opts[:sort_by]
+    p tree.to_a.map { |m| m.send(opts[:sort_by]) }
+    
+    tree = tree.to_a.sort_by { |m| m.send(opts[:sort_by]).nil? ? 0 : m.send(opts[:sort_by]) }
     render partial: "#{opts[:path]}/tree", locals: { tree: sortable_tree_builder(tree, opts), opts: opts }
   end
 

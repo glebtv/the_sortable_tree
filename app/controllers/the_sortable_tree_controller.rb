@@ -80,7 +80,6 @@ module TheSortableTreeController
       elsif !prev_id.empty?
         variable.move_to_right_of the_find(klass, prev_id)
       elsif !next_id.empty?
-        p the_find(klass, next_id)
         variable.move_to_left_of the_find(klass, next_id)
       end
 
