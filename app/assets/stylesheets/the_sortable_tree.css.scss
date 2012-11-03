@@ -24,16 +24,16 @@ ol.nested_set * {
     padding: 0;
   }
   li {
-    margin-bottom: 5px;
+    margin-bottom: 5px !important;
     li {
-      margin-top: 5px;
+      margin-top: 5px !important;
     }
   }
   .link > a {
-    color: #000;
+    color: #000 !important;
     font-size: 10pt;
     font-weight: normal;
-    text-decoration: none;
+    text-decoration: none !important;
     float: left;
     display: block;
     padding-left: 10px;
