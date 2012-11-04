@@ -8,7 +8,7 @@
   - else
     - extra = opts[:extra]
   - handle = content_tag :i, '', :class => :handle
-  - link = link_to(title, url_for(opts[:namespace] + [node]), :title => strip_tags(title).strip)
+  - link = link_to(title, url_for(opts[:namespace] + [node.to_param]), :title => strip_tags(title).strip)
   - controls = render(:partial => "#{opts[:path]}/controls", :locals => { :node => node, :opts => opts })
   - controls = content_tag(:b, controls, :class => :controls)
   - element = handle + extra + controls + link 
