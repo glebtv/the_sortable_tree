@@ -23,7 +23,24 @@ function sortable_tree_init(tree_config) {
       });
   }
 
+    function toggle_deletes() {
+        $('#' + tree_config['id']).find('li').each(function() {
+            var $t = $(this);
+            if ($t.find('ol, ul').children('li').length) {
+                $t.children('.link').children('.controls').children('.delete').css({opacity: 0.3}).click(function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert($('#' + tree_config['id']).data('del'));
+                });
+            } else {
+                $t.children('.link').children('.controls').children('.delete').show().off('click');
+            }
+        })
+    }
+
   $(function(){
+      toggle_deletes();
+
       $('#' + tree_config['id']).nestedSortable({
           disableNesting: 'no-nest',
           forcePlaceholderSize: true,
@@ -38,6 +55,8 @@ function sortable_tree_init(tree_config) {
           tolerance: 'pointer',
           toleranceElement: '> div',
           update: function(event, ui){
+              toggle_deletes();
+
               parent_id = ui.item.parent().parent().data('id');
               item_id = ui.item.data('id');
               prev_id = ui.item.prev().data('id');

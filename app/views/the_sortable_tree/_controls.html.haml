@@ -18,16 +18,10 @@
 -# EDIT
 - edit = link_to '', polymorphic_url(opts[:namespace] + [node], :action => :edit), :title => t('.edit_this'), :class => 'ns_button edit'
 -# DELETE
-- if opts[:has_children]
-  - delete =  link_to('', url_for(opts[:namespace] + [node]),
-    :title    =>  t('.delete'),
-    :method   =>  :delete,
-    :confirm  =>  t('.delete_confirm'),
-    :class    =>  'ns_button delete')
-- else
-  - delete =  link_to('', '#',
-    :title    =>  t('.cant_be_deleted'),
-    :onclick  =>  "alert('#{t('.delete_nested_elements')}')",
-    :class    =>  'ns_button undeleted')
+- delete = link_to('', url_for(opts[:namespace] + [node]),
+  :title => t('.delete'),
+  :method => :delete,
+  :confirm => t('.delete_confirm'),
+  :class => 'ns_button delete')
 -# OUTPUT
 = toggle + edit + delete

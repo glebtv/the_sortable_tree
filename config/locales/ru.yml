@@ -12,3 +12,5 @@ ru:
       disable_this: Выключить
     disabled: Выключено.
     enabled: Включено.
+    tree:
+      delete_nested_elements: Сперва удалите все дочерние элементы

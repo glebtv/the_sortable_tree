@@ -12,3 +12,5 @@ en:
       disable_this: Disable
     disabled: Disabled
     enabled: Enabled
+    tree:
+      delete_nested_elements: Delete all nested elements

@@ -1,4 +1,4 @@
 - unless tree.empty?
-  = render :partial => "#{opts[:path]}/js", :locals => { :opts => opts }
-  %ol.ui-sortable.sortable.nested_set{ :id => "#{opts[:klass]}_nested_set_#{opts[:rand_id]}" }
+  = render partial: "#{opts[:path]}/js", locals: {opts: opts}
+  %ol.ui-sortable.sortable.nested_set{id: "#{opts[:klass]}_nested_set_#{opts[:rand_id]}", 'data-del' => t('.delete_nested_elements')}
     = raw tree
