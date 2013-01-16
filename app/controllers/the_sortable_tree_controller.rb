@@ -15,7 +15,7 @@ module TheSortableTreeController
       end
       variable.save
       if request.xhr?
-        render text: "true|#{I18n.t("disable_this")}"
+        render text: "true|#{I18n.t("the_sortable_tree.controls.disable_this")}"
       else 
         redirect_to :back, notice: t('the_sortable_tree.enabled')
       end
@@ -32,7 +32,7 @@ module TheSortableTreeController
       end
       variable.save
       if request.xhr?
-        render text: "false|#{I18n.t("enable_this")}"
+        render text: "false|#{I18n.t("the_sortable_tree.controls.enable_this")}"
       else 
         redirect_to :back, notice: t('the_sortable_tree.disabled')
       end
