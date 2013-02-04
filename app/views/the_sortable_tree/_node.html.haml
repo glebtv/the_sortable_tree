@@ -9,8 +9,8 @@
     - extra = opts[:extra]
   - handle = content_tag :i, '', :class => :handle
   - link = link_to(title, url_for(opts[:namespace] + [node]), :title => strip_tags(title).strip)
-  - controls = render(:partial => "#{opts[:path]}/controls", :locals => { :node => node, :opts => opts })
-  - controls = content_tag(:b, controls, :class => :controls)
+  - controls = render(:partial => "#{opts[:path]}/controls", :locals => { :node => node, :opts => opts }).html_safe
+  - controls = content_tag(:b, controls, :class => :controls).html_safe
   - element = handle + extra + controls + link 
   %div{ :class => "link#{' root' if root}" }
     = element
