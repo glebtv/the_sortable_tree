@@ -33,7 +33,7 @@ function sortable_tree_init(tree_config) {
                     alert($('#' + tree_config['id']).data('del'));
                 });
             } else {
-                $t.children('.link').children('.controls').children('.delete').show().off('click');
+                $t.children('.link').children('.controls').children('.delete').css({opacity: 1}).off('click');
             }
         })
     }
