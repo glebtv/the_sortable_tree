@@ -50,7 +50,6 @@ function sortable_tree_init(tree_config) {
           maxLevels: tree_config['max_levels'],
           opacity: .6,
           placeholder: 'placeholder',
-          revert: 250,
           tabSize: 25,
           tolerance: 'pointer',
           toleranceElement: '> div',
