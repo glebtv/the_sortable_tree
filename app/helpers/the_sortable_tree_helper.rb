@@ -11,9 +11,9 @@ module TheSortableTreeHelper
 
   def define_class_of_elements_of tree
     case
-      when defined?(ActiveRecord) && tree.is_a?(ActiveRecord::Relation) then tree.name.to_s.underscore.downcase
+      when defined?(ActiveRecord) && tree.is_a?(ActiveRecord::Relation) then tree.name.to_s.gsub("::", "_").underscore.downcase
       when tree.empty? then nil
-      else tree.first.class.to_s.underscore.downcase
+      else tree.first.class.to_s.gsub("::", "_").underscore.downcase
     end
   end
 
